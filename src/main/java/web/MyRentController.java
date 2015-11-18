@@ -87,6 +87,14 @@ public class MyRentController implements RentService{
 	@ResponseStatus(HttpStatus.OK)
 	@Override
 	public void rentCar(@PathVariable("plateNumber") String plateNumber) throws Exception {
+		List<CarDTO> dtos = new ArrayList<CarDTO>();
+		Car car;
+		for(int i=0; i<cars.size(); i++){	// parcours BDD
+			car = cars.get(i);				// extrait ième voiture
+			if(car.getPlateNumber().equals(plateNumber)){
+				car.setRented(true);
+			}
+		}
 	}
 
 	/**
@@ -98,6 +106,14 @@ public class MyRentController implements RentService{
 	@ResponseStatus(HttpStatus.OK)
 	@Override
 	public void renderCar(@PathVariable("plateNumber") String plateNumber) throws Exception {
+		List<CarDTO> dtos = new ArrayList<CarDTO>();
+		Car car;
+		for(int i=0; i<cars.size(); i++){	// parcours BDD
+			car = cars.get(i);				// extrait ième voiture
+			if(car.getPlateNumber().equals(plateNumber)){
+				car.setRented(false);
+			}
+		}
 	}
 
 }
