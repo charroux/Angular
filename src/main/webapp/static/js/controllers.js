@@ -23,21 +23,3 @@ rentControllers.controller("rentController", function($scope,$http,$routeParams)
 	};
         
 });
-
-rentControllers.controller("getBackController", function($scope,$http,$routeParams) {
-
-	$scope.plateNumber = '';
-	$scope.getCarBack = function(plateNumber){
-		
-		$http.put('http://localhost:8080/Angular-master/car/'+plateNumber).
-		  success(function(data, status, headers, config) {
-		  	alert('get back ok');
-		  }).
-		  error(function(data, status, headers, config) {
-			  alert('erreur');
-		  });
-		
-	};
-	
-});
-
